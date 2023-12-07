@@ -11,6 +11,17 @@ class Race {
     this.#moveCount = moveCount;
   }
 
+  raceStart() {
+    OutputView.printExecutionResult();
+
+    for (let i = 0; i < this.#moveCount; i++) {
+      this.moveCar();
+      OutputView.printIntermediateResults(this.#table);
+    }
+    const winner = this.findWinner(this.#table);
+    console.log(winner);
+  }
+
   getRandomNumber() {
     return Random.pickNumberInRange(MOVE_RANGE.START, MOVE_RANGE.END);
   }
@@ -37,11 +48,16 @@ class Race {
 
   findWinner(table) {
     const winner = [];
-    const max = Math.max(...table);
+    let max = 0;
+
+    for (let key in table) {
+      if (table[key].length > max) max = table[key].length;
+    }
+
     const keys = Object.keys(table);
 
     for (let key of keys) {
-      if (table[key] === max) winner.push(key);
+      if (table[key].length === max) winner.push(key);
     }
     return winner;
   }
