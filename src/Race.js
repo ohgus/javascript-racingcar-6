@@ -13,4 +13,14 @@ class Race {
   getRandomNumber() {
     Random.pickNumberInRange(MOVE_RANGE.START, MOVE_RANGE.END);
   }
+
+  canMoveCar() {
+    const num = this.getRandomNumber();
+
+    if (num >= MOVE_RANGE.MOVE) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
