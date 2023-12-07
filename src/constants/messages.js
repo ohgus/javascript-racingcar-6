@@ -6,6 +6,7 @@ const MESSAGE = Object.freeze({
   },
   PRINT: {
     EXECUTION_RESULT: "\n" + "실행결과",
+    WINNER: "최종 우승자 : ",
   },
 });
 

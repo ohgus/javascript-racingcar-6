@@ -19,7 +19,7 @@ class Race {
       OutputView.printIntermediateResults(this.#table);
     }
     const winner = this.findWinner(this.#table);
-    console.log(winner);
+    OutputView.printWinner(winner);
   }
 
   getRandomNumber() {

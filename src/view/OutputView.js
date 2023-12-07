@@ -12,6 +12,14 @@ class OutputView {
     }
     Console.print("");
   }
+
+  static printWinner(winner) {
+    if (winner.length === 1) {
+      Console.print(`${MESSAGE.PRINT.WINNER}${winner[0]}`);
+    } else {
+      Console.print(`${MESSAGE.PRINT.WINNER}${winner.join(", ")}`);
+    }
+  }
 }
 
 export default OutputView;
