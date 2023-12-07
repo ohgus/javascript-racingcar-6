@@ -17,6 +17,14 @@ class Validator {
       }
     }
   }
+
+  static validateMoveCount(input) {
+    const num = Number(input);
+
+    if (!ERROR.NUM_REGEX.test(num)) {
+      throw new Error(ERROR.NOT_ALLOWED_NUM);
+    }
+  }
 }
 
 export default Validator;
