@@ -1,4 +1,5 @@
 import InputView from "./view/InputView.js";
+import setTabe from "./utils/tableSetter.js";
 
 class App {
   #carnames;
@@ -8,6 +9,7 @@ class App {
   async play() {
     this.#carnames = await InputView.getCarName();
     this.#moveCount = await InputView.getMoveCount();
+    this.#table = setTabe(this.#carnames);
   }
 }
 
