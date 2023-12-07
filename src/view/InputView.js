@@ -9,9 +9,14 @@ class InputView {
   }
 
   static async getCarName() {
-    const input = await this.readCarName();
-    Validator.validateCarName(input);
-    return input.split(",");
+    try {
+      const input = await this.readCarName();
+      Validator.validateCarName(input);
+      return input.split(",");
+    } catch (e) {
+      Console.print(e.message);
+      return await this.getCarName();
+    }
   }
 
   static async readMoveCount() {
@@ -20,9 +25,14 @@ class InputView {
   }
 
   static async getMoveCount() {
-    const input = await this.readMoveCount();
-    Validator.validateMoveCount(input);
-    return Number(input);
+    try {
+      const input = await this.readMoveCount();
+      Validator.validateMoveCount(input);
+      return Number(input);
+    } catch (e) {
+      Console.print(e.message);
+      return await this.getMoveCount();
+    }
   }
 }
 
