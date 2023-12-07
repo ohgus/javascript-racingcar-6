@@ -13,6 +13,11 @@ class InputView {
     Validator.validateCarName(input);
     return input.split(",");
   }
+
+  static async readMoveCount() {
+    const input = await Console.readLineAsync(MESSAGE.READ.MOVE_COUNT);
+    return input;
+  }
 }
 
 export default InputView;
