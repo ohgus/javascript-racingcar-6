@@ -1,5 +1,6 @@
 import { Random } from "@woowacourse/mission-utils";
 import MOVE_RANGE from "./constants/moveRange.js";
+import OutputView from "./view/OutputView.js";
 
 class Race {
   #table;
@@ -33,4 +34,17 @@ class Race {
       }
     }
   }
+
+  findWinner(table) {
+    const winner = [];
+    const max = Math.max(...table);
+    const keys = Object.keys(table);
+
+    for (let key of keys) {
+      if (table[key] === max) winner.push(key);
+    }
+    return winner;
+  }
 }
+
+export default Race;
