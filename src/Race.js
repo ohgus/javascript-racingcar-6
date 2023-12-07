@@ -11,7 +11,7 @@ class Race {
   }
 
   getRandomNumber() {
-    Random.pickNumberInRange(MOVE_RANGE.START, MOVE_RANGE.END);
+    return Random.pickNumberInRange(MOVE_RANGE.START, MOVE_RANGE.END);
   }
 
   canMoveCar() {
@@ -21,6 +21,16 @@ class Race {
       return true;
     } else {
       return false;
+    }
+  }
+
+  moveCar() {
+    for (let car in this.#table) {
+      const flag = this.canMoveCar();
+
+      if (flag) {
+        this.#table[car] += "-";
+      }
     }
   }
 }
