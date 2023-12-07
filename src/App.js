@@ -7,6 +7,7 @@ class App {
 
   async play() {
     this.#carnames = await InputView.getCarName();
+    this.#moveCount = await InputView.getMoveCount();
   }
 }
 

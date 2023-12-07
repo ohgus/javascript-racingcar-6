@@ -18,6 +18,12 @@ class InputView {
     const input = await Console.readLineAsync(MESSAGE.READ.MOVE_COUNT);
     return input;
   }
+
+  static async getMoveCount() {
+    const input = await this.readMoveCount();
+    Validator.validateMoveCount(input);
+    return Number(input);
+  }
 }
 
 export default InputView;
